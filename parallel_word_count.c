@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <time.h>  // Include time.h for timing functions
 
 #define NUM_THREADS 4  // Number of threads to use
 
@@ -48,6 +49,9 @@ int main(int argc, char *argv[]) {
     ThreadData thread_data[NUM_THREADS];
     long chunk_size = file_size / NUM_THREADS;
 
+    // Start timing
+    clock_t start_time = clock();
+
     for (int i = 0; i < NUM_THREADS; i++) {
         thread_data[i].file = file;
         thread_data[i].start = i * chunk_size;
@@ -66,7 +70,12 @@ int main(int argc, char *argv[]) {
         total_word_count += thread_data[i].word_count;
     }
 
+    // End timing
+    clock_t end_time = clock();
+    double time_taken = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+
     printf("Total word count: %d\n", total_word_count);
+    printf("Processing time: %.4f seconds\n", time_taken);
 
     fclose(file);
     return 0;
