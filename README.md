@@ -30,3 +30,8 @@ The program opens a text file, divides it into chunks, and assigns each chunk to
    ```sh
    git clone https://github.com/YOUR_USERNAME/parallel-file-processing.git
    cd parallel-file-processing
+2. **Compilation**:
+- To compile the program, use the following command:
+   gcc parallel_word_count.c -o parallel_word_count -pthread
+- Run the Program:
+   ./parallel_word_count <filename>
