@@ -33,7 +33,11 @@ The program opens a text file, divides it into chunks, and assigns each chunk to
 2. **Compilation**:
 - To compile the program, use the following command:
    ```sh
-   gcc parallel_word_count.c -o parallel_word_count -pthread
+   gcc -o sequential sequential.c -std=c99 -lz
+   gcc -o parallel parallel.c -std=c99 -lz -lpthread
+   gcc -o parallel_omp parallel_omp.c -std=c99 -lz -fopenmp
 - Run the Program:
    ```sh
-   ./parallel_word_count <filename>
+   ./sequential <filename.txt>
+   ./parallel <filename.txt>
+   ./parallel_omp <filename.txt>
