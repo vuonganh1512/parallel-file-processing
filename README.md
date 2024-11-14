@@ -34,10 +34,10 @@ The program opens a text file, divides it into chunks, and assigns each chunk to
 - To compile the program, use the following command:
    ```sh
    gcc -o sequential sequential.c -std=c99 -lz
-   gcc -o parallel parallel.c -std=c99 -lz -lpthread
+   gcc -o parallel_pthread parallel_pthread.c -std=c99 -lz -lpthread
    gcc -o parallel_omp parallel_omp.c -std=c99 -lz -fopenmp
 - Run the Program:
    ```sh
-   ./sequential <filename.txt>
-   ./parallel <filename.txt>
-   ./parallel_omp <filename.txt>
+   ./sequential sample.txt
+   ./parallel_pthread sample.txt
+   ./parallel_omp sample.txt
